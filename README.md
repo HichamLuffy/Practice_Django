@@ -17,4 +17,8 @@
 
 ### admin section 
 
-- 
+- in admin.py add ``admin.site.register(model class name)``
+- do `python3 manage.py makemigrations` . this command tells Django to look for changes in your models and prepare migration files. These files are used to apply the changes to the database schema 
+- do `python3 manage.py migrate` This command applies the migration files to your database, creating or altering tables based on your models.
+    - use those two commands everytime you made change in databases
+- do `python3 manage.py createsuperuser` This command creates a superuser account. Superusers have full access to the Django admin site and can manage all aspects of the database. (use this ONLY ON the first time )
