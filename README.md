@@ -14,3 +14,7 @@
 ### setup url
 -  `urls.py` in this file we define URL pattern we will use " the empty string ' ', which matches the root url of the application "
 - `views.py` in this file we define the views function that will handles the http request and return http response 
+
+### admin section 
+
+- 
