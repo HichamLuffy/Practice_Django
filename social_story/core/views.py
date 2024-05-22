@@ -7,4 +7,5 @@ from django.http import HttpResponse
 # TODO:Create your views here.
 def index(request):
     """view for index"""
-    return render(request, 'index.html')
+    name = "social_story"
+    return render(request, 'index.html', {'name': name})
