@@ -5,13 +5,15 @@ from django.contrib.auth.models import User, auth
 from .models import Profile
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
 # TODO:Create your views here.
+@login_required(login_url='login')
 def main(request):
     """view for main"""
-    name = "social_story"
-    return render(request, 'main.html', {'name': name})
+    profile = Profile.objects.get(user=request.user)
+    return render(request, 'main.html', {'user': request.user, 'profile': profile})
 
 def signup(request):
     """view for signup"""
@@ -38,7 +40,7 @@ def signup(request):
                 new_profile.save()
                 print("profile created")
                 print(new_profile)
-                return redirect('main')
+                return redirect('login')
         else:
             messages.info(request, 'password not matching', extra_tags='error')
             print("password not matching")
@@ -50,4 +52,24 @@ def signup(request):
 
 def login(request):
     """view for login"""
-    return render(request, 'login.html')
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            print(user)
+            return redirect('main')
+        else:
+            messages.info(request, 'invalid credentials', extra_tags='error')
+            print("invalid credentials")
+            return redirect('login')
+        
+    else:
+        return render(request, 'login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
