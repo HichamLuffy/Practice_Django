@@ -8,11 +8,11 @@
 /* Basic styling for the header, main, and footer */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #8f8f8f;
 }
 
 header, main, footer {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 20px;
 }
@@ -24,16 +24,21 @@ header {
 }
 
 main {
-    background-color: #fff;
+    background-color: #b4b4b4;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 30px;
 }
 
+button a {
+    color: #fff;
+    text-decoration: none;
+}
+
 footer {
     text-align: center;
     font-size: 14px;
-    color: #888;
+    color: #ffffff;
 }
 
 /* Styling for login and sign-up sections */
@@ -71,4 +76,16 @@ button {
 
 button:hover {
     background-color: #555;
+}
+
+a {
+    text-decoration: none;
+}
+
+.error {
+    color: rgb(255, 0, 0);
+    background-color: #fd22222a;
+    margin-bottom: 10px;
+    border: #333 1px solid;
+    padding: 10px;
 }

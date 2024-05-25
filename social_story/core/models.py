@@ -8,12 +8,11 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 class Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE) #! need to explain
+    user = models.ForeignKey(User, on_delete=models.CASCADE) #! need to explain # explication: if the user is deleted the profile will be deleted
     id_user = models.IntegerField()
     bio = models.TextField(blank=True, max_length=500)
     profileimg = models.ImageField(upload_to='profile_images', default='profile_images/default0.jpeg')
-    favorites = models.ManyToManyField(User, related_name='favorites', blank=True) #! need to explain
-
+    favorites = models.ManyToManyField(User, related_name='favorites', blank=True) #! need to explain # explication: many to many relationship with users each user can have many favorites and each favorite can have many users
     def __str__(self) -> str:
         return self.user.username
 

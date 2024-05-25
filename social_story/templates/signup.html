@@ -5,29 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Storytelling Platform</title>
+    <title>MethosVita | Signup</title>
 </head>
 <body>
     <header>
-        <h1>Welcome to {{ name }}</h1>
+        <h1>Welcome to MethosVita</h1>
         <p>Share and explore stories in various formats!</p>
     </header>
     <main>
-        <section class="login-section">
-            <h2>Login</h2>
-            <!-- Add your login form here -->
-            <form action="" method="post">
-                {% csrf_token %}
-                <!-- Add input fields for username and password -->
-                <input type="text" name="username" placeholder="Username">
-                <input type="password" name="password" placeholder="Password">
-                <button type="submit">Login</button>
-            </form>
-        </section>
         <section class="signup-section">
             <h2>Sign Up</h2>
+            <div>
+                {% if messages %}
+                {% for message in messages %}
+                    <p class="error">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+            </div>
             <!-- Add your sign-up form here -->
-            <form action="" method="post">
+            <form action="" method="POST">
                 {% csrf_token %}
                 <!-- Add input fields for username, email, and password -->
                 <input type="text" name="username" placeholder="Username">
@@ -35,6 +31,7 @@
                 <input type="password" name="password1" placeholder="Password">
                 <input type="password" name="password2" placeholder="Confirm Password">
                 <button type="submit">Sign Up</button>
+                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
             </form>
         </section>
     </main>

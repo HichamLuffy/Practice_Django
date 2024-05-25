@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Storytellinaaaaaaaag Platform</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to {{ name }}</h1>
+        <p>Share anaaaaaad explore stories in various formats!</p>
+    </header>
+    <main>
+        <section class="section1">
+            <h1>START YOUR STORY</h1>
+            <h1>SEARCH ABOUT YOUR FAVOURITE STORY</h1>
+        </section>
+        <div>
+            {% if messages %}
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <section class="section2">
+            <h1>super awesome</h1>
+        </section>
+        <button><a href="{% url 'signup' %}">Sign Up</a></button>
+        <button><a href="{% url 'login' %}">Login</a></button>
+    </main>
+    <footer>
+        <p>© 2024 Social Story. All rights reserved.</p>
+    </footer>
+</body>
+</html>
