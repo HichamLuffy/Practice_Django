@@ -1,0 +1,48 @@
+.features {
+  padding: 20px;
+  color: #ffffff;
+  background: linear-gradient(to bottom, #D4A5A5, #89CFF0);
+}
+
+.features-content {
+  text-align: center;
+}
+
+.features h1, .features h2 {
+  font-family: 'Press Start 2P', cursive;
+  margin-bottom: 10px;
+}
+
+.features h1 {
+  font-size: 2.5em;
+}
+
+.features h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 200px;
+}
+
+.feature-item img {
+  max-width: 50px;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-family: 'Arial', sans-serif;
+  font-size: 1em;
+  text-align: center;
+}

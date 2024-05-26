@@ -5,39 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Storytellinaaaaaaaag Platform</title>
+    <link rel="stylesheet" href="{% static 'css/sections.css' %}">
+    <title>MethosVeta</title>
 </head>
 <body>
-    <header>
-        {% if user %}
-        <h1>Welcome {{ user.username }}</h1>
-        <img src="{{ profile.profileimg.url }}" alt="{{ user.username }}'s profile picture" style="width:100px;height:100px;">
-        <button><a href="{% url 'logout' %}">Logout</a></button>
-        {% else %} 
-        <h1>Welcome to Storytellinaaaaaaaag Platform</h1>
-        {% endif %}
-        <p>Share anaaaaaad explore stories in various formats!</p>
+    <header id="header">
+        <div class="profile">
+            <img src="{{ profile.profileimg.url }}" alt="Profile" class="profile-pic">
+            <span class="username">{{ user.username }}</span>
+        </div>
+        <nav class="nav-bar">
+            <a href="#home" class="nav-item">
+                <img src="{% static 'images/icons/MethosVeta.png' %}" alt="Home Icon" width="16" height="16">
+                MethosVeta
+            </a>
+            <a href="#browse" class="nav-item">
+                <img src="{% static 'images/icons/Browser.png' %}" alt="Browse Icon" width="16" height="16">
+                Browse Stories
+            </a>
+            <a href="#reader" class="nav-item">
+                <img src="{% static 'images/icons/Story_reader.png' %}" alt="Reader Icon" width="16" height="16">
+                Story Reader
+            </a>
+            <a href="#post" class="nav-item">
+                <img src="{% static 'images/icons/PostStory.png' %}" alt="Post Icon" width="16" height="16">
+                Post a Story
+            </a>
+        </nav>
+        <div class="notifications">
+            <button class="notification-btn">Notifications</button>
+        </div>
     </header>
     <main>
-        <section class="section1">
-            <h1>START YOUR STORY</h1>
-            <h1>SEARCH ABOUT YOUR FAVOURITE STORY</h1>
-        </section>
-        <div>
-            {% if messages %}
-            {% for message in messages %}
-                <p class="error">{{ message }}</p>
-            {% endfor %}
-            {% endif %}
-        </div>
-        <section class="section2">
-            <h1>super awesome</h1>
-        </section>
-        <button><a href="{% url 'signup' %}">Sign Up</a></button>
-        <button><a href="{% url 'login' %}">Login</a></button>
+        {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>© 2024 Social Story. All rights reserved.</p>
-    </footer>
+    <div class="cd-container">
+        <img src="{% static 'images/cdimage.png' %}" alt="CD Image" class="cd-image" id="cd">
+    </div>
+    <img src="{% static 'images/background/winexp.jpeg' %}" alt="" class="checkered-background">
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 </html>

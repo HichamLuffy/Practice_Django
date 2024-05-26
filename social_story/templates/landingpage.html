@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% load static %}
+{% block content %}
+<section id="home">
+    <div class="intro-content">
+        <h1>Welcome to MethosVeta</h1>
+        <h2>A Retro Social Media Platform for Storytelling</h2>
+        <p>Immerse yourself in a nostalgic 90s experience while sharing and enjoying stories from around the world.</p>
+        <p>Write, read, listen, and interact with a vibrant community of storytellers.</p>
+        <p>Experience stories in a unique retro-themed environment.</p>
+    </div>
+    <div class="intro-image">
+        <img src="{% static 'images/crt_tv.png' %}" alt="Retro CRT TV">
+    </div>
+</section>
+<section id="Features">
+    <div class="intro-content">
+        <h1>Features of StoryLifeVeta</h1>
+        <h2>What Makes Us Unique</h2>
+        <p>Interactive Storytelling: Post and read stories in text or audio format.</p>
+        <p>Nostalgic Design: Relive the 90s with our retro-themed interface.</p>
+        <p>Storytelling Community: Join our thriving community of storytellers.</p>
+        <p>Conversations: Connect with like-minded individuals and share your thoughts.</p>
+    </div>
+    <div class="intro-image2">
+        <img src="{% static 'images/features.PNG' %}" alt="">
+    </div>
+</section>
+
+{% endblock %}

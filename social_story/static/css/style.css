@@ -1,91 +1,174 @@
-/* Reset some default styles */
-* {
+body, html {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Basic styling for the header, main, and footer */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #8f8f8f;
-}
-
-header, main, footer {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    color: black;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #a3a3a3;
+    padding: 2px;
+    z-index: 1000;
+    border-top: 2px solid #8f8f8f;
+    color: black;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid black;
+}
+
+.username {
+    font-weight: bold;
+    border: 2px solid black;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    background-color: #d3d3d3;
+}
+
+.nav-item:hover {
+    background-color: rgba(94, 94, 94, 0.596);
+}
+
+.nav-item img {
+    margin-right: 5px;
+}
+
+.notifications {
+    margin-left: auto;
+    border: 2px solid black;
+    padding: 5px;
+    margin-right: 20px;
+    background-color: #d3d3d3;
+}
+
+.notification-btn {
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 main {
-    background-color: #b4b4b4;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 30px;
+    padding-top: 60px;
+    padding-bottom: 80px;
 }
 
-button a {
-    color: #fff;
-    text-decoration: none;
-}
-
-footer {
+.section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    font-size: 14px;
-    color: #ffffff;
+    color: white;
 }
 
-/* Styling for login and sign-up sections */
-.login-section, .signup-section {
-    margin-bottom: 20px;
+.cd-container {
+    position: fixed;
+    top: 14%;
+    left: -13.5%;
+    z-index: 999;
 }
 
-h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
+.cd-image {
+    max-width: 350px;
+    height: auto;
+
 }
 
-form {
+.intro-content {
     display: flex;
     flex-direction: column;
+    margin-left: 200px;
+    align-items: flex-start;  /* Align items to the start (left-aligned) */
+    text-align: left;  /* Ensure text is left-aligned */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+.intro-content h1 {
+    margin: 10px 0;
+    font-size: 3em;
+    color: red;
+    font-family: 'Press Start 2P', Courier, monospace;
 }
 
-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 3px;
+.intro-content h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Press Start 2P', Courier, monospace;
 }
 
-button:hover {
-    background-color: #555;
+.intro-content p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: rgb(73, 73, 73);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-a {
-    text-decoration: none;
+.intro-image {
+    display: flex;
+    flex-direction: column;
+    margin-left: 800px;
 }
 
-.error {
-    color: rgb(255, 0, 0);
-    background-color: #fd22222a;
-    margin-bottom: 10px;
-    border: #333 1px solid;
-    padding: 10px;
+.intro-image img {
+    width: 600px;
+    height: auto;
+}
+
+.checkered-background {
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.intro-image2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 800px;
+
+}
+
+.intro-image2 img {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
 }

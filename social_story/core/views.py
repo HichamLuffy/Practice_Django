@@ -6,14 +6,15 @@ from .models import Profile
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
+# TODO: n5li landing page like windows kbl mayt7l or like installation d windows mhm dkshi lkdim wslat fikra.
 
 # TODO:Create your views here.
+
 @login_required(login_url='login')
 def main(request):
     """view for main"""
     profile = Profile.objects.get(user=request.user)
-    return render(request, 'main.html', {'user': request.user, 'profile': profile})
+    return render(request, 'landingpage.html', {'user': request.user, 'profile': profile})
 
 def signup(request):
     """view for signup"""
