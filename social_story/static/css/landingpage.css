@@ -1,0 +1,326 @@
+:root {
+    --flower-count: 20;           /* Number of flowers */
+    --flower-speed: 5s;           /* Speed of flower movement */
+    --light-flicker-speed: 1.8s;  /* Speed of light flicker */
+    --fog-opacity: 0.4;           /* Opacity of fog */
+    --main-color: #b9b9b9; /* Adjust based on your background */
+    --accent-color: #ff5ce9d2; /* Adjust based on your background */
+    --font-family: 'Arial', sans-serif; /* Choose a matching font */
+    --light-color: rgba(198, 207, 255, 0.8); /* Light color */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: #000;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.overlay, .stars, .fog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+}
+
+@keyframes moveFlowers {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes lightFlicker {
+    0%, 50% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.8;
+    }
+}
+
+.flower, .light {
+    position: absolute;
+    animation: moveFlowers var(--flower-speed) infinite ease-in-out;
+}
+
+
+.flower {
+    width: 50px;
+    height: 50px;
+    background: url('../images/flowera.png') no-repeat center center;
+    background-size: contain;
+}
+
+.light {
+    width: 50px;
+    height: 50px;
+    background: rgba(80, 156, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.stars {
+    background: transparent url('../images/stars.png') repeat top center;
+    animation: twinkle 50s infinite;
+}
+
+@keyframes twinkle {
+    0% { background-position: 0 0; }
+    100% { background-position: -10000px 5000px; }
+}
+
+.fog {
+    background: rgba(255, 255, 255, var(--fog-opacity));
+    filter: blur(30px);
+    animation: drift 30s infinite linear;
+}
+
+@keyframes drift {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-2000px); }
+}
+
+.content {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: var(--main-color);
+    font-family: var(--font-family);
+    max-width: 400px;
+    z-index: 10; /* Ensure it appears above other elements */
+}
+
+.title {
+    font-size: 3em;
+    color: var(--accent-color);
+    margin: 0;
+    filter: none; /* Ensure initial state */
+}
+
+.description {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+    filter: none; /* Ensure initial state */
+}
+
+.details {
+    font-size: 1em;
+    line-height: 1.5;
+    filter: none; /* Ensure initial state */
+}
+
+.light-effect {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, var(--light-color) 0%, transparent 70%);
+    pointer-events: none;
+    animation: lightFlicker 2s infinite;
+}
+
+@keyframes lightFlicker {
+    0%, 50% { opacity: 1; }
+    25% { opacity: 0.6; }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.5);
+    }
+}
+
+.light-effect {
+    animation: fadeInOut 2s infinite;
+    z-index: 5;
+}
+
+.content h1, .content p {
+    position: relative;
+}
+
+.light-effect {
+    position: absolute;
+    top: -60%;
+    left: 1%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, var(--light-color) 0%, transparent 40%);
+    pointer-events: none;
+    animation: flicker 3s infinite;
+    z-index: 5;
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.7; }
+}
+
+
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200vh;
+  background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+  background-repeat: repeat;
+  animation: bg-animation .2s infinite;
+  opacity: .9;
+  visibility: visible;
+  z-index: 999999;
+}
+
+@keyframes bg-animation {
+    0% { transform: translate(0,0) }
+    10% { transform: translate(-5%,-5%) }
+    20% { transform: translate(-10%,5%) }
+    30% { transform: translate(5%,-10%) }
+    40% { transform: translate(-5%,15%) }
+    50% { transform: translate(-10%,5%) }
+    60% { transform: translate(15%,0) }
+    70% { transform: translate(0,10%) }
+    80% { transform: translate(-15%,0) }
+    90% { transform: translate(10%,5%) }
+    100% { transform: translate(5%,0) }
+}
+
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.d1 {
+  position: absolute;
+  /* background-image: url(../images/background/car.png); */
+  background-size: 1920px 1080px;
+
+  height: 30vh;
+  width: 15vw;
+
+  background-position: 0 50%;
+
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  animation: dd1 10s 1, dd12 10s 1;
+  animation-delay: 4s, 14s;
+}
+.d2 {
+  position: absolute;
+  /* background-image: url(../images/background/car.png); */
+  background-size: 1920px 1080px;
+
+  height: 50vh;
+  width: 25vw;
+
+  background-position: -10vw 50%;
+  left: 10vw;
+
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  animation: dd2 10s 2;
+  animation-delay: 4s;
+}
+.d3 {
+  position: absolute;
+  /* background-image: url(../images/background/car.png); */
+  background-size: 1920px 1080px;
+  overflow: hidden;
+
+  height: 100vh;
+  width: 40vw;
+  left: 25vw;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  background-position: -35vw 50%;
+
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  animation: dd3 10s 2;
+  animation-delay: 4s;
+}
+.d4 {
+  position: absolute;
+  overflow: hidden;
+  /* background-image: url(../images/background/car.png); */
+  background-size: 1920px 1080px;
+  height: 80vh;
+  width: 25vw;
+  left: 60vw;
+  background-position: -70vw 50%;
+
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  animation: dd4 10s 2;
+  animation-delay: 4s;
+}
+
+@keyframes dd1 {
+  0% {
+  }
+  50% {
+    width: 95vw;
+  }
+}
+@keyframes dd12 {
+  0% {
+  }
+  50% {
+    background-position: Calc(0vw - 40px) 50%;
+  }
+}
+@keyframes dd2 {
+  0% {
+  }
+  50% {
+    background-position: Calc(-10vw - 40px) 50%;
+  }
+}
+@keyframes dd3 {
+  0% {
+  }
+  50% {
+    background-position: Calc(-35vw - 40px) 50%;
+  }
+}
+@keyframes dd4 {
+  0% {
+  }
+  50% {
+    background-position: Calc(-70vw - 40px) 50%;
+  }
+}
