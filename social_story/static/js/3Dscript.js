@@ -3,7 +3,13 @@ document.addEventListener('mousemove', (e) => {
     const moveX = (x / window.innerWidth) * 2 - 1;
     const moveY = (y / window.innerHeight) * 2 - 1;
 
-    document.querySelector('.background').style.transform = `translate(${moveX * 10}px, ${moveY * 10}px)`;
+    document.querySelector('.movbk').style.transform = `translate(${moveX * 5}px, ${moveY * 5}px)`;
+});
+
+document.addEventListener('mousemove', function(e) {
+    const cursor = document.querySelector('.custom-cursor');
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
 });
 
 // Generate flowers and light effects
