@@ -302,11 +302,11 @@ body, html {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.678);
+    background: rgba(255, 255, 255, 0.534);
     position: absolute;
     pointer-events: none;
     filter: blur(35px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.678), 0 0 20px rgba(255, 255, 255, 0.678), 0 0 30px rgba(255, 255, 255, 0.678);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.678), 0 0 20px rgba(255, 255, 255, 0.438), 0 0 30px rgba(255, 255, 255, 0.534);
     transition: transform 0.1s ease;
     transform: translate(-50%, -50%);
 }
