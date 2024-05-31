@@ -18,11 +18,12 @@ body, html {
     background: #000;
 }
 
+
 .container {
     position: relative;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .movbk {
     position: absolute;
@@ -299,14 +300,130 @@ body, html {
 
 
 .custom-cursor {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.534);
     position: absolute;
     pointer-events: none;
     filter: blur(35px);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.678), 0 0 20px rgba(255, 255, 255, 0.438), 0 0 30px rgba(255, 255, 255, 0.534);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.534), 0 0 30px rgba(255, 255, 255, 0.534), 0 0 40px rgba(255, 255, 255, 0.534);
     transition: transform 0.1s ease;
     transform: translate(-50%, -50%);
+}
+
+
+.scroll-container {
+    position: absolute;
+    z-index: 999999999;
+    top: 2%;
+    left: 1%;
+    height: 80%; /* Adjust as needed */
+    width: 80%; /* Adjust as needed */
+    /* overflow-x: hidden; */
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    padding-right: 20px; /* Optional: to avoid hiding the right part due to the scrollbar */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+}
+
+.scroll-container section {
+    margin-bottom: 50px;
+    z-index: 999999999;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+button {
+    background-image: linear-gradient(45deg, transparent 50%, #000000 50%);
+    color: #000000;
+    background-color: #ffffff00;
+    opacity: 0.5;
+    border: none;
+    /* box-shadow: 0 0 5px #959155;; */
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-position: 25%;
+    background-size: 400%;
+    -webkit-transition: background 500ms ease-in-out, color 500ms ease-in-out;
+    transition: background 500ms ease-in-out, color 500ms ease-in-out;
+}
+
+button:hover {
+    color: #ffffff;
+    background-position: 100%;
+}
+
+button a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.feature {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.feature img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    margin: 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        height: 90%;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+}
+
+.section {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out;
+    filter: blur(10px);
+}
+
+.section.visible {
+    opacity: 1;
+    filter: blur(0);
+}
+
+.nav-arrow {
+    display: none;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.left-arrow {
+    left: 1rem;
+}
+
+.right-arrow {
+    right: 1rem;
 }

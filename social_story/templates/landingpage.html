@@ -23,14 +23,73 @@
         <div class="fog"></div>
         <div class="light-effect"></div>
         <div class="bg"></div>
-        <div class="content">
-            <h1 class="title"><span class="methos">Methos</span><span class="veta">Veta</span></h1>
-            <p class="description">Let's connect with stories</p>
-            <p class="details">
-                Discover a platform for sharing, writing, reading, and listening to stories. 
-                Join our community to explore and contribute to an ever-growing collection of tales.
-            </p>
+        <div class="scroll-container">
+            <div class="content">
+                <section id="section1" class="section active intro">
+                    <h1 class="title"><span class="methos">Methos</span><span class="veta">Veta</span></h1>
+                    <p class="description">Let's connect with stories</p>
+                    <p class="details">Discover a platform for sharing, writing, reading, and listening to stories. Join our community to explore and contribute to an ever-growing collection of tales.</p>
+                </section>
+                <section id="section2" class="section discover">
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+                    <h2 class="veta">Explore a World of Stories and Narrations</h2>
+                    <p>Share and listen to captivating stories in text or voice format. </p>
+                    <p>Immerse yourself in a diverse range of genres, including mystery, thriller, romance, and more.</p>
+                    <div class="buttons">
+                        <button><a href="{% url 'signup' %}">Sign Up</a></button>
+                        <button><a href="{% url 'login' %}">Login</a></button>
+                    </div>
+                </section>
+                <section id="section3" class="section features">
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                    <div class="feature">
+                        <h3 class="methos">Engage with Stories in a Unique Way</h3>
+                        <p>Explore a wide range of stories, from real-life experiences to thrilling fiction, all in one place.</p>
+                    </div>
+                    <div class="feature">
+                        <h3 class="veta">Connect and Share Stories with Others</h3>
+                        <p>Interact with the community by commenting, liking, and sharing your favorite stories.</p>
+                    </div>
+                    <div class="feature">
+                        <h3 class="methos">Read Stories Alone or with Friends</h3>
+                        <p>Whether you're a solo reader or a group of friends, you can read stories with ease.</p>
+                    </div>
+                    <div class="feature">
+                        <h3 class="veta">Immerse Yourself in a Nostalgic 90s Theme</h3>
+                        <p>Experience the platform's unique design inspired by the iconic 90s era.</p>
+                    </div>
+                </section>
+                <section id="section4" class="section stories">
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                    <h2 class="methos">Discover and Share Captivating Stories</h2>
+                    <p>Join our community of storytellers and readers to explore a world of imagination.</p>
+                    <div class="buttons">
+                        <button><a href="{% url 'signup' %}">Sign Up</a></button>
+                        <button><a href="{% url 'login' %}">Login</a></button>
+                    </div>
+                </section>
+                <section id="section5" class="section reader">
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                    <h2 class="veta">Read and Share Your Favorite Stories with Others</h2>
+                    <p>Excellent experiences with your friends.</p>
+                </section>
+                <section id="section6" class="section 90s">
+                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                    <h2>Unleash Your Creativity with Our 90s Inspired Platform</h2>
+                    <p>Welcome to our platform, </p>
+                    <p>where you can share, read, and listen to a variety of stories. Immerse yourself in a world of real-life experiences, fictional tales, and creative narrations spanning all genres.</p>
+                    <p> Join our vibrant community and unleash your creativity today!</p>
+                    <div class="buttons">
+                        <button><a href="{% url 'signup' %}">Sign Up</a></button>
+                        <button><a href="{% url 'login' %}">Login</a></button>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="nav-arrow left-arrow">&lt;</div>
+        <div class="nav-arrow right-arrow">&gt;</div>
     </div>
     <script src="../static/js/3Dscript.js"></script>
+    <script src="../static/js/scripts.js"></script>
 </body>
-</htm
+</html>

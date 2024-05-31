@@ -13,19 +13,20 @@ document.addEventListener('mousemove', function(e) {
 });
 
 // Generate flowers and light effects
-const overlay = document.querySelector('.overlay');
-const flowerCount = getComputedStyle(document.documentElement).getPropertyValue('--flower-count');
+// const overlay = document.querySelector('.overlay');
+// const flowerCount = getComputedStyle(document.documentElement).getPropertyValue('--flower-count');
 
-for (let i = 0; i < flowerCount; i++) {
-    const flower = document.createElement('div');
-    flower.classList.add('flower');
-    flower.style.top = `${Math.random() * 100}%`;
-    flower.style.left = `${Math.random() * 100}%`;
-    overlay.appendChild(flower);
-}
+// for (let i = 0; i < flowerCount; i++) {
+//     const flower = document.createElement('div');
+//     flower.classList.add('flower');
+//     flower.style.top = `${Math.random() * 100}%`;
+//     flower.style.left = `${Math.random() * 100}%`;
+//     overlay.appendChild(flower);
+// }
 
 const light = document.createElement('div');
 light.classList.add('light');
 light.style.top = '20%'; // Adjust light position
 light.style.left = '40%'; // Adjust light position
 overlay.appendChild(light);
+
