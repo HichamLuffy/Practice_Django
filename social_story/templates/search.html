@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Search</title>
+</head>
+<body>
+    <h1>Search for Books</h1>
+    <form method="get" action="{% url 'search_books' %}">
+        <input type="text" name="query" placeholder="Search by name or related names..." value="{{ query }}">
+        <input type="text" name="genre" placeholder="Search by genre..." value="{{ genre }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if books %}
+        <h2>Search Results</h2>
+        <ul>
+            {% for book in books %}
+                <li>
+                    <a href="{% url 'book_detail' book.key %}">{{ book.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif query or genre %}
+        <p>No results found for "{{ query }} {{ genre }}"</p>
+    {% endif %}
+</body>
+</html>

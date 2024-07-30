@@ -135,18 +135,18 @@ body, html {
 }
 
 .methos {
-  background: linear-gradient(45deg, #fcfded, #aed581); /* Yellow to light green gradient */
+  background: linear-gradient(45deg, #8d44d1, #4e2a99); /* Yellow to light green gradient */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 5px #d4e157;
+  text-shadow: 0 0 5px #ea77fc;
   animation: glowMethos 2s infinite alternate;
 }
 
 .veta {
-  background: linear-gradient(45deg, #c2cc66, #c2cc66); /* Dark green to green gradient */
+  background: linear-gradient(45deg, #fdfdfd, #65a0bf); /* Dark green to green gradient */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 5px #959155;
+  text-shadow: 0 0 5px #c0edf6;
   animation: glowVeta 2s infinite alternate;
 }
 
@@ -167,19 +167,19 @@ body, html {
 
 @keyframes glowMethos {
   from {
-    text-shadow: 0 0 5px rgba(233, 233, 233, 0.5), 0 0 20px rgba(250, 250, 250, 0.5), 0 0 30px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 5px #a444c79c, 0 0 20px #a444c79c, 0 0 30px #a444c79c;
   }
   to {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 30px rgba(212, 225, 87, 0.5), 0 0 40px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 10px #a444c79c, 0 0 30px #a444c79c, 0 0 40px #a444c79c;
   }
 }
 
 @keyframes glowVeta {
   from {
-    text-shadow: 0 0 5px rgba(197,205,114,255), 0 0 20px rgba(197,205,114,255), 0 0 30px rgba(197,205,114,255);
+    text-shadow: 0 0 5px #64a3c2a2, 0 0 20px #64a3c2a2, 0 0 30px #64a3c2a2;
   }
   to {
-    text-shadow: 0 0 10px rgba(197,205,114,255), 0 0 30px rgba(197,205,114,255), 0 0 40px rgba(197,205,114,255);
+    text-shadow: 0 0 10px #64a3c2a2, 0 0 30px #64a3c2a2, 0 0 40px #64a3c2a2;
   }
 }
 
@@ -295,7 +295,13 @@ body, html {
 
   top: 50%;
   transform: translateY(-50%);
-  z-index: 3;
+  z-index: 9999999993;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 
@@ -303,11 +309,12 @@ body, html {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.534);
+    background: #a444c786;
     position: absolute;
     pointer-events: none;
     filter: blur(35px);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.534), 0 0 30px rgba(255, 255, 255, 0.534), 0 0 40px rgba(255, 255, 255, 0.534);
+    box-shadow: 0 0 20px #a444c786, 0 0 30px #a444c786, 0 0 40px #a444c786;
+    animation: glowMethos 2s infinite alternate;
     transition: transform 0.1s ease;
     transform: translate(-50%, -50%);
 }

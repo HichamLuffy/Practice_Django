@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 """view for social_story"""
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User, auth
 from .models import Profile
+from django.http import JsonResponse, Http404
+import requests
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -74,3 +76,46 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+
+def search_books(request):
+    query = request.GET.get('query', '')
+    genre = request.GET.get('genre', '')
+    books = []
+
+    if query or genre:
+        try:
+            api_url = f'https://openlibrary.org/search.json?q={query}&subject={genre}'
+            response = requests.get(api_url)
+
+            if response.status_code == 200:
+                data = response.json()
+                books = data.get('docs', [])
+            else:
+                return JsonResponse({'error': 'Failed to fetch stories'}, status=response.status_code)
+        except Exception as e:
+            return JsonResponse({'error': 'An error occurred'}, status=500)
+    
+    return render(request, 'search.html', {'books': books, 'query': query, 'genre': genre})
+
+def book_detail(request, book_key):
+    api_url = f'https://openlibrary.org{book_key}.json'
+    response = requests.get(api_url)
+    
+    if response.status_code == 200:
+        book = response.json()
+        
+        # Fetch additional content details
+        description = book.get('description')
+        if isinstance(description, dict):
+            description = description.get('value', '')
+
+        excerpts = book.get('excerpts', [])
+        excerpt_texts = [excerpt.get('text', '') for excerpt in excerpts]
+
+        book['description'] = description
+        book['excerpts'] = excerpt_texts
+
+        return render(request, 'book_detail.html', {'book': book})
+    else:
+        raise Http404("Book not found")

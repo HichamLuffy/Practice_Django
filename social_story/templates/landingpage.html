@@ -9,15 +9,57 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
     <link rel="stylesheet" href="{% static 'css/particles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sign.css' %}">
     <title>MethosVeta</title>
 </head>
 <body>
     <div class="container">
         <div class="movbk">
-            <img src="{% static 'images/background/gardern.png' %}" alt="Background" class="background">
+            <img src="{% static 'images/background/car.png' %}" alt="Background" class="background">
         </div>
         <div class="main">
-            <div class="d3"></div>
+            <div class="d3">
+                <!-- Login Form -->
+                <div class="main2">    
+                    <input type="checkbox" id="chk" aria-hidden="true">
+                    
+                    <div class="signup">
+                        <form action="{% url 'signup' %}" method="post">
+                            {% csrf_token %}
+                            <label for="chk" aria-hidden="true" class="form-label">Sign in</label>
+                            <div>
+                                {% if messages %}
+                                {% for message in messages %}
+                                    <p class="error">{{ message }}</p>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            <input type="text" name="username" placeholder="User name" required="">
+                            <input type="email" name="email" placeholder="Email" required="">
+                            <input type="password" name="password1" placeholder="Password" required="">
+                            <input type="password" name="password2" placeholder="Confirm Password" required="">
+                            <button>Sign up</button>
+                        </form>
+                    </div>
+            
+                    <div class="login">
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <label for="chk" aria-hidden="true" class="form-label">Sign up</label>
+                            <div>
+                                {% if messages %}
+                                {% for message in messages %}
+                                    <p class="error">{{ message }}</p>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            <input type="text" name="username" placeholder="username" required="">
+                            <input type="password" name="password1" placeholder="Password" required="">
+                            <button>Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="custom-cursor"></div>
         <div class="fog"></div>
